@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export default {
+  LOCAL: process.env.LOCAL === 'true',
   PORT: process.env.PORT || 3000,
   DB_DRIVER: process.env.DB_DRIVER || 'mongodb',
   DB_HOST: process.env.DB_HOST || 'localhost',
@@ -11,6 +12,7 @@ export default {
   DB_USER: process.env.DB_USER || 'root',
   DB_PASSWORD: process.env.DB_PASSWORD || 'root',
   DB_NAME: process.env.DB_NAME || 'mystore',
+  DB_CLUSTER: process.env.DB_CLUSTER || 'mystore',
   API_PREFIX: process.env.API_PREFIX || 'api',
   LOG_DIRECTORY: process.env.LOG_DIRECTORY || 'logs',
   CORS_ALLOWED_ORIGINS: process.env.CORS_ALLOWED_ORIGINS?.split(',').map(e => e.trim()) || 'http://localhost:3000',

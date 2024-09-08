@@ -1,7 +1,12 @@
 import mongoose from 'mongoose';
 import settings from '../config/settings.js';
 
-const uri = `${settings.DB_DRIVER}://${settings.DB_HOST}:${settings.DB_PORT}/${settings.DB_NAME}`;
+const uri = settings.LOCAL
+  ?`${settings.DB_DRIVER}://${settings.DB_HOST}:${settings.DB_PORT}/${settings.DB_NAME}`
+  : `${settings.DB_DRIVER}://${settings.DB_USER}:${settings.DB_PASSWORD}@${settings.DB_HOST}/${settings.DB_NAME}?retryWrites=true&w=majority&appName=${settings.DB_CLUSTER}`;
+//mongodb+srv://<db_username>:<db_password>@mycluster.atuwo.mongodb.net/?retryWrites=true&w=majority&appName=MyCluster
+
+console.log(uri);
 
 export const connectDB = async () => {
   try {
