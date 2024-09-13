@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/frameworks/http/server.js",
-    "dev": "nodemon src/frameworks/http/server.js",
+    "start": "node api/src/frameworks/http/server.js",
+    "dev": "nodemon api/src/frameworks/http/server.js",
     "seed": "node -r dotenv/config src/seeders/runSeeder.js"
   },
   "keywords": [],

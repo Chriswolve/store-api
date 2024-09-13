@@ -6,8 +6,6 @@ const uri = settings.LOCAL
   : `${settings.DB_DRIVER}://${settings.DB_USER}:${settings.DB_PASSWORD}@${settings.DB_HOST}/${settings.DB_NAME}?retryWrites=true&w=majority&appName=${settings.DB_CLUSTER}`;
 //mongodb+srv://<db_username>:<db_password>@mycluster.atuwo.mongodb.net/?retryWrites=true&w=majority&appName=MyCluster
 
-console.log(uri);
-
 export const connectDB = async () => {
   try {
     await mongoose.connect(uri);
