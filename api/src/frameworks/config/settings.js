@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export default {
+  APP_NAME: process.env.APP_NAME || 'mystore',
   LOCAL: process.env.LOCAL === 'true',
   PORT: process.env.PORT || 3000,
   DB_DRIVER: process.env.DB_DRIVER || 'mongodb',
