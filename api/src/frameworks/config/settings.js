@@ -16,5 +16,7 @@ export default {
   API_PREFIX: process.env.API_PREFIX || 'api',
   LOG_DIRECTORY: process.env.LOG_DIRECTORY || 'logs',
   CORS_ALLOWED_ORIGINS: process.env.CORS_ALLOWED_ORIGINS?.split(',').map(e => e.trim()) || 'http://localhost:3000',
-  CORS_ALLOWED_METHODS: process.env.CORS_ALLOWED_METHODS?.split(',').map(e => e.trim()) || ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
+  CORS_ALLOWED_METHODS: process.env.CORS_ALLOWED_METHODS?.split(',').map(e => e.trim()) || ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+  PAPERTRAIL_DOMAIN: process.env.PAPERTRAIL_DOMAIN || 'logs.papertrailapp.com',
+  PAPERTRAIL_PORT: process.env.PAPERTRAIL_PORT || 23726,
 }

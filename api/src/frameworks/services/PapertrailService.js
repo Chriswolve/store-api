@@ -1,10 +1,11 @@
 import winston from 'winston';
 import {Syslog} from 'winston-syslog';
+import settings from '../config/settings.js';
 
 // Configurar la conexión a Papertrail vía Syslog
 const syslogTransport = new Syslog({
-  host: 'logs4.papertrailapp.com',  // Host de Papertrail
-  port: 10434,  // Puerto de Papertrail (TCP o UDP)
+  host: settings.PAPERTRAIL_DOMAIN,  // Host de Papertrail
+  port: settings.PAPERTRAIL_PORT,  // Puerto de Papertrail (TCP o UDP)
   protocol: 'tls',  // Protocolo a usar (TLS es recomendado)
   app_name: 'my-store',  // Nombre de la aplicación o servicio
   eol: '\n'  // Fin de línea para separar los logs
