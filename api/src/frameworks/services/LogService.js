@@ -6,7 +6,7 @@ const logDirectory = settings.LOG_DIRECTORY;
 const logFilePath = path.join(logDirectory, 'app.log');
 
 // Crear el directorio de logs si no existe
-if (!fs.existsSync(logDirectory)) {
+if (!fs.existsSync(logDirectory) && settings.LOCAL) {
   fs.mkdirSync(logDirectory);
 }
 
