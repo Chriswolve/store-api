@@ -1,5 +1,7 @@
-import LogService from "../../logs/LogService.js";
+import LogService from "../../services/LogService.js";
 import HttpError from "../../../utils/HttpError.js";
+import settings from "../../config/settings.js";
+import logger from "../../services/PapertrailService.js";
 
 
 export function boomErrorHandler(error, req, res, next) {
@@ -36,7 +38,11 @@ export function errorHandler(error, req, res, next) {
 
 export function errorLog(error, req, res, next) {
   // log the error
-  LogService.logError(error);
+  if(settings.LOCAL){
+    LogService.logError(error);
+  }else{
+    logger.error(JSON.stringify(error.toJSON(true), null, 2));
+  }
   // continue with the next middleware
   next(error);
 }

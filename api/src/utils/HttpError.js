@@ -30,14 +30,14 @@ class HttpError {
     return this.#args;
   }
 
-  toJSON() {
+  toJSON(join = false) {
 
     return {
       message: getMessage(this),
       status: this.status,
       url: this.url,
       errors: this.data ?? undefined,
-      stack: this.stack,
+      stack: !join ? this.stack : this.stack.join('\n'),
     };
   }
 
