@@ -1,5 +1,6 @@
 import express from 'express';
 import settings from '../config/settings.js';
+import path from 'path';
 
 import {connectDB} from '../database/db.js';
 import setRoutes from '../../routes/index.js';
@@ -23,6 +24,11 @@ app.use(express.json());
 
 // Middleware de CORS
 app.use(corsMiddleware);
+
+
+// Servir archivos estáticos desde la carpeta 'public'
+const __dirname = path.resolve(); // Para obtener el directorio raíz
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Conectar a la base de datos
 connectDB();
