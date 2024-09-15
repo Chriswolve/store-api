@@ -1,4 +1,5 @@
 import settings from '../frameworks/config/settings.js';
+
 import { Router } from 'express';
 // App routes
 import productRoutes from './products.routes.js';
@@ -29,6 +30,8 @@ function setRoutes() {
 
   let docsURI = null;
 
+
+
   Object.entries(routes).forEach(([version, routes]) => {
     const router = Router();
     const basePath = `/${prefix}/${version}`;
@@ -43,7 +46,7 @@ function setRoutes() {
       router.use(route.path, route.routes);
     }
   });
-  // Redirect to docs
+  //Redirect to docs
   if(docsURI) {
     this.get('/', (req, res) => {
       res.redirect(docsURI);

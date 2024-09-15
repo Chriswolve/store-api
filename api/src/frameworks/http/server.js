@@ -1,9 +1,10 @@
 import express from 'express';
 import settings from '../config/settings.js';
-import pathToSwaggerUi from 'swagger-ui-dist';
+
 
 import {connectDB} from '../database/db.js';
 import setRoutes from '../../routes/index.js';
+import { docsPath } from '../services/SwaggerService.js';
 
 import {
   errorLog,
@@ -25,9 +26,6 @@ app.use(express.json());
 // Middleware de CORS
 app.use(corsMiddleware);
 
-app.use(express.static(pathToSwaggerUi.absolutePath()))
-
-
 // Conectar a la base de datos
 connectDB();
 
@@ -42,6 +40,9 @@ app.use(errorResponseHandler);  // Enviar respuesta de error
 
 // Middleware de éxito
 app.use(successHandler);
+
+// Servir los staticos de Swagger
+app.use(express.static(docsPath))
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
