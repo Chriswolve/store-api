@@ -10,6 +10,10 @@
     {
       "src": "/(.*)",
       "dest": "api/src/frameworks/http/server.js"
-    }
+    },
+    { "src": "/api/v1/docs/swagger-ui.css", "dest": "/public/swagger-ui.css" },
+    { "src": "/api/v1/docs/swagger-ui-bundle.js", "dest": "/public/swagger-ui-bundle.js" },
+    { "src": "/api/v1/docs/swagger-ui-standalone-preset.js", "dest": "/public/swagger-ui-standalone-preset.js" }
+
   ]
 }
