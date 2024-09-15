@@ -1,0 +1,538 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "My Store API",
+    "description": "API para gestionar mi tienda",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Servidor de desarrollo"
+    }
+  ],
+  "paths": {
+    "/api/v1/products": {
+      "get": {
+        "summary": "Obtener una lista de productos",
+        "tags": ["Productos"],
+        "responses": {
+          "200": {
+            "description": "Lista de productos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "example": "60d21b4667d0d8992e610c85"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Producto A"
+                      },
+                      "price": {
+                        "type": "number",
+                        "example": 10.5
+                      },
+                      "stock": {
+                        "type": "integer",
+                        "example": 100
+                      },
+                      "image": {
+                        "type": "string",
+                        "example": "https://loremflickr.com/640/480?lock=7067267168731136"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Crear un nuevo producto",
+        "tags": ["Productos"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Producto A"
+                  },
+                  "price": {
+                    "type": "number",
+                    "example": 10.5
+                  },
+                  "stock": {
+                    "type": "integer",
+                    "example": 100
+                  },
+                  "image": {
+                    "type": "string",
+                    "example": "https://loremflickr.com/640/480?lock=7067267168731136"
+                  },
+                  "category_id": {
+                    "type": "string",
+                    "example": "60d21b4667d0d8992e610c86"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Producto creado"
+          }
+        }
+      }
+    },
+    "/api/v1/products/{id}": {
+      "get": {
+        "summary": "Obtener un producto por ID",
+        "tags": ["Productos"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID del producto",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Producto encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "60d21b4667d0d8992e610c85"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Producto A"
+                    },
+                    "price": {
+                      "type": "number",
+                      "example": 10.5
+                    },
+                    "image": {
+                      "type": "string",
+                      "example": "https://loremflickr.com/640/480?lock=7067267168731136"
+                    },
+                    "stock": {
+                      "type": "integer",
+                      "example": 100
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Producto no encontrado"
+          }
+        }
+      },
+      "put": {
+        "summary": "Actualizar un producto por ID",
+        "tags": ["Productos"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID del producto",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Producto A"
+                  },
+                  "price": {
+                    "type": "number",
+                    "example": 10.5
+                  },
+                  "stock": {
+                    "type": "integer",
+                    "example": 100
+                  },
+                  "image": {
+                    "type": "string",
+                    "example": "https://loremflickr.com/640/480?lock=7067267168731136"
+                  },
+                  "category_id": {
+                    "type": "string",
+                    "example": "60d21b4667d0d8992e610c86"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Producto actualizado"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Actualizar parcialmente un producto por ID",
+        "tags": ["Productos"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID del producto",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Producto A"
+                  },
+                  "price": {
+                    "type": "number",
+                    "example": 10.5
+                  },
+                  "stock": {
+                    "type": "integer",
+                    "example": 100
+                  },
+                  "image": {
+                    "type": "string",
+                    "example": "https://loremflickr.com/640/480?lock=7067267168731136"
+                  },
+                  "category_id": {
+                    "type": "string",
+                    "example": "60d21b4667d0d8992e610c86"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Producto actualizado parcialmente"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Eliminar un producto por ID",
+        "tags": ["Productos"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID del producto",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Producto eliminado"
+          }
+        }
+      }
+    },
+    "/api/v1/categories": {
+      "get": {
+        "summary": "Obtener una lista de categorías",
+        "tags": ["Categorías"],
+        "responses": {
+          "200": {
+            "description": "Lista de categorías",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "example": "60d21b4667d0d8992e610c86"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Categoría A"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Crear una nueva categoría",
+        "tags": ["Categorías"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Categoría A"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "Descripción de la categoría A"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Categoría creada"
+          }
+        }
+      }
+    },
+    "/api/v1/categories/{id}": {
+      "get": {
+        "summary": "Obtener una categoría por ID",
+        "tags": ["Categorías"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID de la categoría",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Categoría encontrada",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "60d21b4667d0d8992e610c86"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Categoría A"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Descripción de la categoría A"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Categoría no encontrada"
+          }
+        }
+      },
+      "put": {
+        "summary": "Actualizar una categoría por ID",
+        "tags": ["Categorías"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID de la categoría",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Categoría A"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "Descripción actualizada"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Categoría actualizada"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Actualizar parcialmente una categoría por ID",
+        "tags": ["Categorías"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID de la categoría",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Categoría A"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "Descripción actualizada"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Categoría actualizada parcialmente"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Eliminar una categoría por ID",
+        "tags": ["Categorías"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID de la categoría",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Categoría eliminada"
+          }
+        }
+      }
+    },
+    "/api/v1/categories/{id}/products": {
+      "get": {
+        "summary": "Obtener productos de una categoría",
+        "tags": ["Categorías"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID de la categoría",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Productos de la categoría",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "example": "60d21b4667d0d8992e610c85"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Producto A"
+                      },
+                      "price": {
+                        "type": "number",
+                        "example": 10.5
+                      },
+                      "stock": {
+                        "type": "integer",
+                        "example": 100
+                      },
+                      "image": {
+                        "type": "string",
+                        "example": "https://loremflickr.com/640/480?lock=7067267168731136"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

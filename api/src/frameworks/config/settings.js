@@ -5,6 +5,7 @@ dotenv.config();
 
 export default {
   APP_NAME: process.env.APP_NAME || 'mystore',
+  APP_URL: process.env.APP_URL || 'http://localhost:3000',
   LOCAL: process.env.LOCAL === 'true',
   PORT: process.env.PORT || 3000,
   DB_DRIVER: process.env.DB_DRIVER || 'mongodb',
