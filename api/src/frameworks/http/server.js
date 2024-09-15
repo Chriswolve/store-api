@@ -23,6 +23,9 @@ const port = settings.PORT;
 // Middleware para parsear JSON
 app.use(express.json());
 
+// Servir los staticos de Swagger
+app.use(express.static(docsPath))
+
 // Middleware de CORS
 app.use(corsMiddleware);
 
@@ -41,8 +44,7 @@ app.use(errorResponseHandler);  // Enviar respuesta de error
 // Middleware de éxito
 app.use(successHandler);
 
-// Servir los staticos de Swagger
-app.use(express.static(docsPath))
+
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
