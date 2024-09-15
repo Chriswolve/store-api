@@ -1,4 +1,5 @@
 import swaggerUi from 'swagger-ui-express';
+import pathToSwaggerUi from 'swagger-ui-dist';
 import { readFileSync } from 'fs';
 import { resolve } from 'path';
 import settings from '../config/settings.js';
@@ -19,8 +20,10 @@ const swaggerOptions = {
 
 export const docsUI = swaggerUi.serve;
 export const docsRoutes = swaggerUi.setup(swaggerDocument, swaggerOptions);
+export const docsPath = pathToSwaggerUi.absolutePath();
 
 export default {
   docsUI,
   docsRoutes,
+  docsPath,
 };
