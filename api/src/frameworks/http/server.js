@@ -3,7 +3,8 @@ import settings from '../config/settings.js';
 
 import {connectDB} from '../database/db.js';
 import setRoutes from '../../routes/index.js';
-import { docsPath } from '../services/SwaggerService.js';
+// import swaggerDocs from '../services/SwaggerServiceV2.js';
+// import { docsPath } from '../services/SwaggerService.js';
 
 import {
   errorLog,
@@ -16,6 +17,7 @@ import { successHandler } from './middlewares/success.middleware.js';
 
 import corsMiddleware from './middlewares/cors.middleware.js';
 
+
 const app = express();
 const port = settings.PORT;
 
@@ -27,7 +29,6 @@ app.use(corsMiddleware);
 
 // Conectar a la base de datos
 connectDB();
-
 // Aplicar rutas
 setRoutes.call(app);
 
@@ -40,10 +41,14 @@ app.use(errorResponseHandler);  // Enviar respuesta de error
 // Middleware de éxito
 app.use(successHandler);
 
+
+
 // Servir la documentación de Swagger
-app.use(express.static(docsPath))
+//app.use(express.static(docsPath))
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log(`Servidor escuchando en http://localhost:${port}`);
+
+
 });
