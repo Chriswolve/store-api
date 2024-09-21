@@ -1,10 +1,16 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
   "builds": [
     {
       "src": "api/src/frameworks/http/server.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "webpack.config.js",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     }
   ],
   "routes": [
