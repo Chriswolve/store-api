@@ -3,7 +3,7 @@ import settings from '../config/settings.js';
 
 import {connectDB} from '../database/db.js';
 import setRoutes from '../../routes/index.js';
-// import pathToSwaggerUi from 'swagger-ui-dist';
+import pathToSwaggerUi from 'swagger-ui-dist';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -50,6 +50,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 // Servir los staticos de Swagger
 app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(pathToSwaggerUi.absolutePath()));
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
