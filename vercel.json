@@ -4,13 +4,6 @@
     {
       "src": "api/src/frameworks/http/server.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "build.sh",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
     }
   ],
   "routes": [
