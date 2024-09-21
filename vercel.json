@@ -10,15 +10,15 @@
 
     {
       "src": "/api/v1/docs/swagger-ui.css",
-      "dest": "/dist/swagger-ui.css"
+      "dest": "/api/src/dist/swagger-ui.css"
     },
     {
       "src": "/api/v1/docs/swagger-ui-bundle.js",
-      "dest": "/dist/swagger-ui-bundle.js"
+      "dest": "/api/src/dist/swagger-ui-bundle.js"
     },
     {
       "src": "/api/v1/docs/swagger-ui-standalone-preset.js",
-      "dest": "/dist/swagger-ui-standalone-preset.js"
+      "dest": "/api/src/dist/swagger-ui-standalone-preset.js"
     },
     {
       "src": "/(.*)",
