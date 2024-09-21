@@ -50,6 +50,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Sirve los archivos estáticos
+console.log(path.join(__dirname, 'dist'))
 app.use('/api/v1/docs', express.static(path.join(__dirname, 'dist')));
 
 
