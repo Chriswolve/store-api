@@ -5,9 +5,6 @@ import {connectDB} from '../database/db.js';
 import setRoutes from '../../routes/index.js';
 import pathToSwaggerUi from 'swagger-ui-dist';
 
-// import swaggerDocs from '../services/SwaggerServiceV2.js';
-// import { docsPath } from '../services/SwaggerService.js';
-
 import {
   errorLog,
   errorHandler,
@@ -46,7 +43,8 @@ app.use(successHandler);
 
 
 // Servir los staticos de Swagger
-app.use(express.static(pathToSwaggerUi.absolutePath()));
+const swaggerUiPath = pathToSwaggerUi.absolutePath();
+app.use('/api/v1/docs', express.static(swaggerUiPath));
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
