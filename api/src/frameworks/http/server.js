@@ -3,8 +3,12 @@ import settings from '../config/settings.js';
 
 import {connectDB} from '../database/db.js';
 import setRoutes from '../../routes/index.js';
+// import pathToSwaggerUi from 'swagger-ui-dist';
 import path from 'path';
 import { fileURLToPath } from 'url';
+
+// import swaggerDocs from '../services/SwaggerServiceV2.js';
+// import { docsPath } from '../services/SwaggerService.js';
 
 import {
   errorLog,
@@ -42,17 +46,10 @@ app.use(errorResponseHandler);  // Enviar respuesta de error
 app.use(successHandler);
 
 
-
-// Servir los staticos de Swagger
-// Servir archivos estáticos desde la carpeta dist
-// Cálculo de __dirname en módulos ES
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-// Sirve los archivos estáticos
-console.log(path.join(__dirname, 'dist'))
-app.use('/api/v1/docs', express.static(path.join(__dirname, 'dist')));
-
+// Servir los staticos de Swagger
+app.use(express.static(path.join(__dirname, 'dist')));
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
