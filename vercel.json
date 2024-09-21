@@ -6,10 +6,27 @@
       "use": "@vercel/node"
     }
   ],
+  "buildCommand": "npm run build",
   "routes": [
     {
       "src": "/(.*)",
       "dest": "api/src/frameworks/http/server.js"
+    },
+    {
+      "src": "/api/v1/docs/(.*)",
+      "dest": "/api/src/frameworks/http/server.js"
+    },
+    {
+      "src": "/api/v1/docs/swagger-ui.css",
+      "dest": "/dist/swagger-ui.css"
+    },
+    {
+      "src": "/api/v1/docs/swagger-ui-bundle.js",
+      "dest": "/dist/swagger-ui-bundle.js"
+    },
+    {
+      "src": "/api/v1/docs/swagger-ui-standalone-preset.js",
+      "dest": "/dist/swagger-ui-standalone-preset.js"
     }
   ]
 }
