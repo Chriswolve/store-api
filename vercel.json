@@ -19,6 +19,10 @@
   ],
   "routes": [
     {
+      "src": "/swagger-ui/(.*)",
+      "dest": "/api/public/swagger-ui/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "api/src/frameworks/http/server.js"
     }

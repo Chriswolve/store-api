@@ -20,14 +20,16 @@ const options = {
 const swaggerSpec = swaggerJsdoc(options);
 // Configurar para usar el CDN de Swagger UI
 const swaggerOptions = {
-  customCssUrl: 'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.css',
+  //customCssUrl: 'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.css',
+  customCssUrl: '/swagger-ui/swagger-ui.css',
+
 };
 
 
 // Function to setup swagger docs
 const swaggerDocs = (app, path ) => {
   // Swagger page
-  app.use(path , swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  app.use(path , swaggerUi.serve, swaggerUi.setup(swaggerSpec,swaggerOptions));
   app.get( path + '.json', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.send(swaggerSpec);

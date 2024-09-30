@@ -39,11 +39,6 @@ function setRoutes() {
     // Set routes
     this.use(basePath, router);
     for (const route of routes) {
-      // if(route.ui) {
-      //   router.use(route.path, route.ui, route.routes);
-      //   docsURI = basePath + route.path;
-      //   continue;
-      // }
       if(route.path === '/docs') {
         swaggerDocs(this, basePath + route.path);
         continue;

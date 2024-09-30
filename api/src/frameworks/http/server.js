@@ -8,6 +8,10 @@ import pathToSwaggerUi from 'swagger-ui-dist';
 // import swaggerDocs from '../services/SwaggerServiceV2.js';
 // import { docsPath } from '../services/SwaggerService.js';
 
+import path from 'path';// Define la carpeta donde estarán los archivos estáticos
+import { fileURLToPath } from 'url';
+
+
 import {
   errorLog,
   errorHandler,
@@ -44,10 +48,12 @@ app.use(errorResponseHandler);  // Enviar respuesta de error
 app.use(successHandler);
 
 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // // Servir los staticos de Swagger
 // app.use(express.static(path.join(__dirname, 'dist')));
+console.log(path.join(__dirname, '../../dist'));
+app.use(express.static(path.join(__dirname, '../../dist')));
 app.use(express.static(pathToSwaggerUi.absolutePath()));
 
 
