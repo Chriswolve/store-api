@@ -53,7 +53,9 @@ const __dirname = path.dirname(__filename);
 // // Servir los staticos de Swagger
 // app.use(express.static(path.join(__dirname, 'dist')));
 console.log(path.join(__dirname, '../../dist'));
-app.use(express.static(path.join(__dirname, '../../dist')));
+app.use(express.static(path.join(__dirname, '../../../dist')));
+console.log(pathToSwaggerUi.absolutePath())
+
 app.use(express.static(pathToSwaggerUi.absolutePath()));
 
 
