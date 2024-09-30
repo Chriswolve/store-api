@@ -21,7 +21,7 @@ const swaggerSpec = swaggerJsdoc(options);
 // Configurar para usar el CDN de Swagger UI
 const swaggerOptions = {
   //customCssUrl: 'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.css',
-  customCssUrl: '/static/swagger-ui.css',
+  customCssUrl: '/swagger-ui.css',
 
 };
 
